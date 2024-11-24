@@ -1,0 +1,325 @@
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet" 
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>LA CIUDAD DEL COCHE</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      /* ... (same styles as before) ... */
+    </style>
+  </head>
+  <body>
+    <!-- Modal para imagen ampliada -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modal-image" id="modalImage">
+        <div class="modal-info" id="modalInfo">
+        </div>
+      </div>
+    </div>
+
+    <div class="relative flex size-full min-h-screen flex-col bg-black dark group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+      <!-- Previous header content remains unchanged -->
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#333333] px-10 py-3">
+          <!-- Header content remains unchanged -->
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#FFFFFF] nav-link">
+              <div class="size-4 float-animation">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764Z" fill="currentColor"></path>
+                </svg>
+              </div>
+              <h2 class="text-[#FFFFFF] text-lg font-bold leading-tight tracking-[-0.015em] animate-pulse">Ciudad del Coche</h2>
+            </div>
+            <!-- Search bar -->
+            <div class="flex items-center gap-4">
+              <div class="relative">
+                <input type="text" placeholder="Buscar vehículos..." class="search-input bg-[#333333] text-white px-4 py-2 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]">
+                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#CBCBCB] hover:text-white button-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <!-- Previous hero section remains unchanged -->
+
+            <div class="pb-3">
+              <div class="flex border-b border-[#434343] px-4 gap-8">
+                <a class="nav-link flex flex-col items-center justify-center border-b-[3px] border-b-[#FFFFFF] text-[#FFFFFF] pb-[13px] pt-4" href="#">
+                  <p class="text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">Nuevo</p>
+                </a>
+                <a class="nav-link flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#CBCBCB] pb-[13px] pt-4" href="#">
+                  <p class="text-[#CBCBCB] text-sm font-bold leading-normal tracking-[0.015em]">Financiamiento</p>
+                </a>
+              </div>
+            </div>
+
+            <!-- New Cars Section -->
+            <div id="nuevos" class="p-4">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="car-card flex flex-col gap-3">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl cursor-pointer" 
+                       style='background-image: url("https://cdn.usegalileo.ai/sdxl10/52b7be93-52ee-4ad8-8881-b64b33ea8fb8.png");'
+                       onclick="openModal('https://cdn.usegalileo.ai/sdxl10/52b7be93-52ee-4ad8-8881-b64b33ea8fb8.png', 'Mercedes-Benz EQS 2024', 'El Mercedes-Benz EQS representa el futuro del lujo eléctrico. Con una autonomía líder en su clase de 547 km y una aceleración impresionante de 0-100 km/h en 4.3s, combina rendimiento y eficiencia. Su interior espacioso y tecnológicamente avanzado incluye el revolucionario MBUX Hyperscreen. Características destacadas:<br><br>• Motor eléctrico de 516 HP<br>• Carga rápida: 10-80% en 31 minutos<br>• Sistema de sonido Burmester 3D<br>• Conducción autónoma nivel 3<br><br>Precio desde $89,900')">
+                  </div>
+                  <div class="text-white">
+                    <h3 class="text-xl font-bold">2024 ferrari la ferrari</h3>
+                    <p class="text-[#CBCBCB] mt-2">Desde $89,900</p>
+                    <ul class="mt-2 text-sm text-[#CBCBCB]">
+                      <li>• Autonomía: 547 km</li>
+                      <li>• 0-100 km/h: 4.3s</li>
+                      <li>• Potencia: 516 HP</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="car-card flex flex-col gap-3">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl cursor-pointer"
+                       style='background-image: url("https://cdn.usegalileo.ai/stability/bc009262-46d4-497c-8b4d-6ab40e0ec110.png");'
+                       onclick="openModal('https://cdn.usegalileo.ai/stability/bc009262-46d4-497c-8b4d-6ab40e0ec110.png', 'BMW iX 2024', 'El BMW iX redefine el segmento de SUV eléctricos de lujo. Con una combinación perfecta de sostenibilidad, rendimiento y tecnología avanzada. Su diseño futurista se complementa con un interior minimalista y lujoso.<br><br>• Doble motor eléctrico con 516 HP<br>• Sistema iDrive de última generación<br>• Techo panorámico electrocrómico<br>• Asistente personal inteligente BMW<br><br>Precio desde $84,100')">
+                  </div>
+                  <div class="text-white">
+                    <h3 class="text-xl font-bold">2024 CIVIC TYPE R</h3>
+                    <p class="text-[#CBCBCB] mt-2">Desde $84,100</p>
+                    <ul class="mt-2 text-sm text-[#CBCBCB]">
+                      <li>• Autonomía: 507 km</li>
+                      <li>• 0-100 km/h: 4.6s</li>
+                      <li>• Potencia: 516 HP</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="car-card flex flex-col gap-3">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl cursor-pointer"
+                       style='background-image: url("https://cdn.usegalileo.ai/sdxl10/eb46efd1-3604-402d-b52c-4cbc98e26546.png");'
+                       onclick="openModal('https://cdn.usegalileo.ai/sdxl10/eb46efd1-3604-402d-b52c-4cbc98e26546.png', 'Porsche Taycan 2024', 'El Porsche Taycan es la perfecta fusión entre el ADN deportivo de Porsche y la movilidad eléctrica. Con una potencia impresionante de 750 HP y una aceleración vertiginosa, mantiene la esencia deportiva de la marca.<br><br>• Sistema de propulsión de 800V<br>• Suspensión neumática adaptativa<br>• Interior deportivo con pantallas curvas<br>• Modo Launch Control<br><br>Precio desde $92,500')">
+                  </div>
+                  <div class="text-white">
+                    <h3 class="text-xl font-bold">2024 KIA K5</h3>
+                    <p class="text-[#CBCBCB] mt-2">Desde $92,500</p>
+                    <ul class="mt-2 text-sm text-[#CBCBCB]">
+                      <li>• Autonomía: 484 km</li>
+                      <li>• 0-100 km/h: 3.0s</li>
+                      <li>• Potencia: 750 HP</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="car-card flex flex-col gap-3">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl cursor-pointer"
+                       style='background-image: url("https://cdn.usegalileo.ai/sdxl10/tesla_model_s.png");'
+                       onclick="openModal('https://cdn.usegalileo.ai/sdxl10/tesla_model_s.png', 'Tesla Model S 2024', 'El Tesla Model S es un sedán eléctrico de lujo que combina rendimiento y tecnología avanzada. Con una aceleración de 0-100 km/h en 2.4s, es uno de los vehículos más rápidos del mercado.<br><br>• Autonomía: 652 km<br>• Potencia: 1020 HP<br>• Carga rápida: 15 minutos para 320 km<br><br>Precio desde $99,990')">
+                  </div>
+                  <div class="text-white">
+                    <h3 class="text-xl font-bold">2024 Tesla Model S</h3>
+                    <p class="text-[#CBCBCB] mt-2">Desde $99,990</p>
+                    <ul class="mt-2 text-sm text-[#CBCBCB]">
+                      <li>• Autonomía: 652 km</li>
+                      <li>• 0-100 km/h: 2.4s</li>
+                      <li>• Potencia: 1020 HP</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="car-card flex flex-col gap-3">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl cursor-pointer"
+                       style='background-image: url("https://cdn.usegalileo.ai/sdxl10/ford_mustang_mach_e.png");'
+                       onclick="openModal('https://cdn.usegalileo.ai/sdxl10/ford_mustang_mach_e.png', 'Ford Mustang Mach-E 2024', 'El Ford Mustang Mach-E es un SUV eléctrico que ofrece un rendimiento emocionante y un diseño icónico. Con una autonomía de hasta 483 km, es perfecto para los amantes de la velocidad y la sostenibilidad.<br><br>• Potencia: 480 HP<br>• 0-100 km/h: 3.5s<br>• Carga rápida: 10-80% en 38 minutos<br><br>Precio desde $59,900')">
+                  </div>
+                  <div class="text-white">
+                    <h3 class="text-xl font-bold">2024 Ford Mustang Mach-E</h3>
+                    <p class="text-[#CBCBCB] mt-2">Desde $59,900</p>
+                    <ul class="mt-2 text-sm text-[#CBCBCB]">
+                      <li>• Autonomía: 483 km</li>
+                      <li>• 0-100 km/h: 3.5s</li>
+                      <li>• Potencia: 480 HP</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Featured Categories -->
+              <div class="mt-12">
+                <h2 class="text-white text-2xl font-bold mb-6">Categorías Destacadas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div class="category-card bg-[#333333] p-4 rounded-xl text-white">
+                    <h3 class="font-bold">SUV Eléctricos</h3>
+                    <p class="text-sm text-[#CBCBCB] mt-2">Desde $45,000</p>
+                  </div>
+                  <div class="category-card bg-[#333333] p-4 rounded-xl text-white">
+                    <h3 class="font-bold">Sedanes de Lujo</h3>
+                    <p class="text-sm text-[#CBCBCB] mt-2">Desde $55,000</p>
+                  </div>
+                  <div class="category-card bg-[#333333] p-4 rounded-xl text-white">
+                    <h3 class="font-bold">Deportivos</h3>
+                    <p class="text-sm text-[#CBCBCB] mt-2">Desde $65,000</p>
+                  </div>
+                  <div class="category-card bg-[#333333] p-4 rounded-xl text-white">
+                    <h3 class="font-bold">Híbridos</h3>
+                    <p class="text-sm text-[#CBCBCB] mt-2">Desde $35,000</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Financing Section -->
+            <div id="financiamiento" class="hidden p-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="car-card bg-[#333333] p-6 rounded-xl">
+                  <h3 class="text-[#FFFFFF] text-xl font-bold mb-4">Préstamo Tradicional</h3>
+                  <ul class="text-[#CBCBCB] space-y-2">
+                    <li>• Tasas desde 7.99% anual</li>
+                    <li>• Plazos de 12 a 72 meses</li>
+                    <li>• Sin penalización por pago anticipado</li>
+                  </ul>
+                  <button class="mt-4 bg-[#FFFFFF] text-black px-6 py-2 rounded-full font-bold button-hover">Solicitar</button>
+                </div>
+                <div class="car-card bg-[#333333] p-6 rounded-xl">
+                  <h3 class="text-[#FFFFFF] text-xl font-bold mb-4">Leasing</h3>
+                  <ul class="text-[#CBCBCB] space-y-2">
+                    <li>• Mensualidades más bajas</li>
+                    <li>• Opción de compra al final</li>
+                    <li>• Incluye mantenimiento</li>
+                  </ul>
+                  <button class="mt-4 bg-[#FFFFFF] text-black px-6 py-2 rounded-full font-bold button-hover">Cotizar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.flex.border-b a');
+        const financingSection = document.getElementById('financiamiento');
+        const newSection = document.getElementById('nuevos');
+        
+        tabs.forEach(tab => {
+          tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            tabs.forEach(t => {
+              t.classList.remove('border-b-[#FFFFFF]', 'text-[#FFFFFF]');
+              t.classList.add('border-b-transparent', 'text-[#CBCBCB]');
+            });
+            
+            this.classList.remove('border-b-transparent', 'text-[#CBCBCB]');
+            this.classList.add('border-b-[#FFFFFF]', 'text-[#FFFFFF]');
+            
+            if(this.textContent.includes('Financiamiento')) {
+              financingSection.classList.remove('hidden');
+              newSection.classList.add('hidden');
+            } else {
+              financingSection.classList.add('hidden');
+              newSection.classList.remove('hidden');
+            }
+          });
+        });
+
+        // Añadir efecto hover a las tarjetas de coches
+        const carCards = document.querySelectorAll('.car-card');
+        carCards.forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+          });
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+          });
+        });
+      });
+
+      function openModal(imgUrl, title, description) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalInfo = document.getElementById('modalInfo');
+        modal.style.display = "block";
+        modalImg.src = imgUrl;
+        modalInfo.innerHTML = `
+          <h2 class="text-2xl font-bold mb-4">${title}</h2>
+          <p class="text-[#CBCBCB]">${description}</p>
+          <button onclick="showFinancingForm()" class="mt-4 bg-[#FFFFFF] text-black px-6 py-2 rounded-full font-bold button-hover">Financiar</button>
+          <div id="financingForm" class="financing-form hidden">
+            <h3 class="text-white text-lg font-bold mb-4">Calcular Financiamiento</h3>
+            <form onsubmit="calculatePayment(event)">
+              <div>
+                <label>Precio del vehículo</label>
+                <input type="number" id="carPrice" required>
+              </div>
+              <div>
+                <label>Enganche (%)</label>
+                <input type="number" id="downPayment" min="10" max="90" required>
+              </div>
+              <div>
+                <label>Plazo (meses)</label>
+                <input type="number" id="term" min="12" max="72" required>
+              </div>
+              <button type="submit" class="bg-[#FFFFFF] text-black px-6 py-2 rounded-full font-bold button-hover">Calcular</button>
+            </form>
+            <div id="paymentResult" class="mt-4 text-[#CBCBCB]"></div>
+          </div>
+        `;
+      }
+
+      function showFinancingForm() {
+        const form = document.getElementById('financingForm');
+        form.classList.remove('hidden');
+        form.classList.add('float-animation');
+      }
+
+      function calculatePayment(event) {
+        event.preventDefault();
+        const price = parseFloat(document.getElementById('carPrice').value);
+        const downPaymentPercent = parseFloat(document.getElementById('downPayment').value);
+        const term = parseInt(document.getElementById('term').value);
+        
+        const downPayment = price * (downPaymentPercent / 100);
+        const loanAmount = price - downPayment;
+        const interestRate = 7.99 / 100 / 12; // Tasa mensual
+        
+        const monthlyPayment = (loanAmount * interestRate * Math.pow(1 + interestRate, term)) / 
+                             (Math.pow(1 + interestRate, term) - 1);
+        
+        const resultDiv = document.getElementById('paymentResult');
+        resultDiv.innerHTML = `
+          <p class="mb-2">Pago mensual estimado: $${monthlyPayment.toFixed(2)}</p>
+          <p class="mb-2">Enganche: $${downPayment.toFixed(2)}</p>
+          <p>Monto a financiar: $${loanAmount.toFixed(2)}</p>
+        `;
+        
+        // Añadir animación al mostrar resultados
+        resultDiv.style.opacity = '0';
+        resultDiv.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          resultDiv.style.transition = 'all 0.5s ease';
+          resultDiv.style.opacity = '1';
+          resultDiv.style.transform = 'translateY(0)';
+        }, 100);
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.opacity = '0';
+        setTimeout(() => {
+          modal.style.display = "none";
+          modal.style.opacity = '1';
+        }, 300);
+      }
+    </script>
+  </body>
+</html>
